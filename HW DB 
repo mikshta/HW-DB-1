@@ -13,7 +13,8 @@ create table if not exists Artist (
 
 create table if not exist Genre_Artist (
     Artist_ID integer references Artist(Artist_ID),
-    Genre_ID integer references Genre(Genre_ID));
+    Genre_ID  integer references Genre(Genre_ID),
+    constaint pk primary key (Artist_ID, Genre_ID));
 
 create table if not exist Genre (
     Genre_ID serial primary key,
@@ -28,7 +29,8 @@ create table if not exist Album(
 
 create table if not exist Artist_Album(
     Artist_ID integer references Atrist(Artist_ID),
-    Album_ID integer references Album(Album_DID));
+    Album_ID key integer references Album(Album_ID),
+    constaint pk primary key(Artist_ID, Album_ID));
 
 create table if not exist Song(
     Song_ID serial primary key,
@@ -45,4 +47,5 @@ create table if not exist Digest(
 
 create table if not exist Digest_Song(
     Digest_ID integer references(Digest(Digest_ID),
-    Song_ID integer references(Song(Song_ID));
+    Song_ID integer references(Song(Song_ID),
+    constaint pk primary key(Digest_ID, Song_ID));
