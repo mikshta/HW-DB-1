@@ -23,7 +23,6 @@ create table if not exist Genre (
 create table if not exist Album(
     Album_ID serial primary key,
     Title varchar(40) not null,
-    Artist_ID integer references Artist(Artist_ID),
     Release_year integer,
     check 1900<Release_year<2023);
 
@@ -41,7 +40,6 @@ create table if not exist Song(
 create table if not exist Digest(
     Digest_ID serial primary key,
     Title varchar(40) not null,
-    Song_ID integer references Song(Song_ID)
     Release_year integer,
     check 1900<release_year<2023);
 
